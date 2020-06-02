@@ -30,7 +30,7 @@ public class RoomScreen extends JPanel implements ActionListener {
     private JSeparator separator;
     private JLabel roomIDLb;
     private ArrayList<PlayerHolder> playerHolders;
-    private int[] playerHolderLocations = {20, 335, 650, 965};
+    private int[] playerHolderLocations = {95, 490, 885};
     private JComboBox levelSelector;
 
     private Vector<String> levels;
@@ -78,12 +78,16 @@ public class RoomScreen extends JPanel implements ActionListener {
 
     private void renderUIofMaster() {
         startGameBtn = new JButton("Start Game");
-        startGameBtn.setBounds(1040, 540, 220, 50);
+        startGameBtn.setBounds(1000, 600, 220, 50);
         startGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
+        startGameBtn.setForeground(Color.BLACK);
         startGameBtn.addActionListener(this);
 
         roomIDLb = new JLabel("Room ID: " + this.host);
-        roomIDLb.setBounds(580, 10, 300, 25);
+        roomIDLb.setBounds(540, 50, 300, 25);
+        roomIDLb.setForeground(Color.CYAN);
+        roomIDLb.setForeground(Color.CYAN);
+        roomIDLb.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
 
 
         levelSelector.setEnabled(true);
@@ -133,16 +137,20 @@ public class RoomScreen extends JPanel implements ActionListener {
         });
         levelSelector.setEnabled(false);
 
-        exitBtn.setBounds(20, 10, 110, 25);
+        exitBtn.setBounds(60, 600, 220, 50);
         exitBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 14));
-        readyBtn.setBounds(660, 540, 220, 50);
+        exitBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
+        exitBtn.setForeground(Color.BLACK);
+        readyBtn.setBounds(1000, 600, 220, 50);
         readyBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
+        readyBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
+        readyBtn.setForeground(Color.BLACK);
         //separator.setBounds(20, 525, 860, 10);
 
         exitBtn.addActionListener(this);
         readyBtn.addActionListener(this);
 
-        add(levelSelector);
+        //add(levelSelector);
         add(exitBtn);
         add(readyBtn);
         add(separator);

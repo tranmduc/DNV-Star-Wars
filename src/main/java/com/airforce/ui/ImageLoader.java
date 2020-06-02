@@ -14,10 +14,12 @@ public class ImageLoader {
        //image = loadImage("/whte.png");
        image = loadImage("/space-bg2.png");
        entities = loadImage("/airplane.png");
-       enemy = loadImage("/airplane.png").getSubimage(0, 0,85, 90);
+       enemy = loadImage("/enemy.png");
+//               .getSubimage(0, 0,85, 90);
        player = loadImage("/plane2.png").getSubimage(5, 10, 290, 240);
        myPlane = loadImage("/plane2.png").getSubimage(5, 10, 290, 240);
-       bullet = loadImage("/bullet4.png").getSubimage(500, 0, 280, 1280);
+       bullet = loadImage("/bullet.png");
+//               .getSubimage(500, 0, 280, 1280);
     }
 
     public static BufferedImage loadImage(String path) {

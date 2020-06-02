@@ -18,7 +18,7 @@ public class GameOverDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JButton okButton;
 
-	private List<JComponent> contentComponent;
+	//private List<JComponent> contentComponent;
 	private OnDialogClose onCloseAction;
 
 	public static void main(String[] args) {
@@ -39,12 +39,13 @@ public class GameOverDialog extends JDialog {
 //					, new JLabel(String.format("_%-30s_:    _%-7s_", "Player cggrqqdeqw", "11").replace(' ', '*'))
 //					, new JLabel(String.format("_%-30s_:    _%-7s_", "Player ht6hjdd", "35").replace(' ', '*'))
 
-					  new JLabel(String.format("_%s_:    _%-7s_", "Pla er", "Score"))
-					, new JLabel(String.format("_%s_:    _%-7s_", "Player", "Score"))
-					, new JLabel(String.format("_%s_:    _%-7s_", "Player", "35"))
+//					  new JLabel(String.format("_%s_:    _%-7s_", "Player", "Score"))
+//					, new JLabel(String.format("_%s_:    _%-7s_", "Player", "Score"))
+//					, new JLabel(String.format("_%s_:    _%-7s_", "Player", "35"))
+					//new JLabel("SCORE").setBounds(158, 11, 106, 25)
 			));
 
-			GameOverDialog dialog = new GameOverDialog(null, components,
+			GameOverDialog dialog = new GameOverDialog(null,
 					null);
 			dialog.showDialog();
 		} catch (Exception e) {
@@ -52,51 +53,51 @@ public class GameOverDialog extends JDialog {
 		}
 	}
 
-	public GameOverDialog(JFrame parentFrame, List<JComponent> contentComponent, OnDialogClose onCloseAction) {
+	public GameOverDialog(JFrame parentFrame, OnDialogClose onCloseAction) {
 		super(parentFrame, ModalityType.APPLICATION_MODAL);		// block the parent window after showing up
 
 		setUndecorated(true);		// remove close button
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		this.onCloseAction = onCloseAction;
 
-		setBounds(100, 100, 450, 450);
+		setBounds(100, 100, 500, 450);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		JLabel lblGameOver = new JLabel("GAME OVER");
-		lblGameOver.setBounds(158, 11, 106, 25);
+		lblGameOver.setBounds(160, 100, 180, 50);
 		lblGameOver.setForeground(Color.RED);
-		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPanel.add(lblGameOver);
 		
-		JPanel panelScore = new JPanel();
-		panelScore.setBounds(10, 65, 414, 278);
-		contentPanel.add(panelScore);
-		panelScore.setLayout(new BoxLayout(panelScore, BoxLayout.Y_AXIS));
+//		JPanel panelScore = new JPanel();
+//		panelScore.setBounds(10, 65, 480, 278);
+//		contentPanel.add(panelScore);
+//		panelScore.setLayout(new BoxLayout(panelScore, BoxLayout.Y_AXIS));
 		
 		
-		this.contentComponent = contentComponent;
-		
-		this.contentComponent.forEach((component) -> {
-//			component.setAlignmentX(Component.CENTER_ALIGNMENT);
-			component.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-			panelScore.add(component);
-		});
+//		this.contentComponent = contentComponent;
+//
+//		this.contentComponent.forEach((component) -> {
+////			component.setAlignmentX(Component.CENTER_ALIGNMENT);
+//			component.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+//			panelScore.add(component);
+//		});
 
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(10, 380, 414, 52);
+			buttonPane.setBounds(50, 250, 400, 100);
 			contentPanel.add(buttonPane);
 			{
 				okButton = new JButton("OK");
-				okButton.setMaximumSize(new Dimension(100, 100));
+				okButton.setMaximumSize(new Dimension(180, 100));
 				okButton.setFocusable(false);
-				okButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				okButton.setFont(new Font("Tahoma", Font.PLAIN, 30));
 				okButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 				okButton.setBorderPainted(false);
-				okButton.setBackground(Color.GREEN);
+				okButton.setBackground(Color.RED);
 				okButton.setForeground(Color.WHITE);
 				okButton.setActionCommand("OK");
 

@@ -16,6 +16,7 @@ public class HelicopterImageLoader {
         frames.add(3, ImageLoader.loadImage("/helicopter/heli-f4.png").getSubimage(21, 21, 160, 160));
         frames.add(4, ImageLoader.loadImage("/helicopter/heli-f5.png").getSubimage(21, 21, 160, 160));
         frames.add(5, ImageLoader.loadImage("/helicopter/heli-f6.png").getSubimage(21, 21, 160, 160));
+//        frames.add(0, ImageLoader.loadImage("/helicopter/plane4.png"));
         curFrame = 0;
     }
 

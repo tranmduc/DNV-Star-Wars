@@ -43,7 +43,7 @@ public class PlayerInGame implements Serializable {
     public void init() {
         current = System.nanoTime();
         delay = 100;
-        health = 3;
+        health = 1;
         score = 0;
     }
 

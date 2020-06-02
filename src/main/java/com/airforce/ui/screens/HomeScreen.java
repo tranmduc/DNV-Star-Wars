@@ -92,11 +92,11 @@ public class HomeScreen extends JPanel implements ActionListener{
         }
     }
     private String enterPlayerName() {
-        String name = JOptionPane.showInputDialog(this, "Enter player name:", "PlayerInGame Name", JOptionPane.QUESTION_MESSAGE);
+        String name = JOptionPane.showInputDialog(this, "Enter player name:", "Player InGame Name", JOptionPane.QUESTION_MESSAGE);
         if (name == null) {
             JOptionPane.showMessageDialog(this, "Please enter a nickname before starting game!");
-        } else if (name.length() < 4) {
-            JOptionPane.showMessageDialog(this, "Your nickname is too short(must be longer than 4)!");
+        } else if (name.length() < 3) {
+            JOptionPane.showMessageDialog(this, "Your nickname is too short(must be longer than 3)!");
         } else if (name.length() > 16) {
             JOptionPane.showMessageDialog(this, "Your nickname is too long(must be shorter than 16!");
         } else {

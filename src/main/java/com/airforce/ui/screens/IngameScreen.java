@@ -186,7 +186,8 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
 
         JFrame jFrameParent = ScreenManager.getInstance().getWindow();
         System.out.println(jFrameParent);
-        GameOverDialog gameOverDialog = new GameOverDialog(jFrameParent, playerScores, this::backToLobby);
+       // GameOverDialog gameOverDialog = new GameOverDialog(jFrameParent, playerScores, this::backToLobby);
+        GameOverDialog gameOverDialog = new GameOverDialog(jFrameParent, this::backToLobby);
         gameOverDialog.showDialog();
     }
 
