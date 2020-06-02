@@ -32,7 +32,7 @@ public class HomeScreen extends JPanel implements ActionListener{
         setLayout(null);
         initUI();
         setVisible(true);
-        initSound();
+        //initSound();
         setBackground(Color.BLACK);
     }
 
@@ -108,6 +108,11 @@ public class HomeScreen extends JPanel implements ActionListener{
 
     private void joinRoom(Boolean isRoomMaster) {
         String ip = "";
+        String playerName = enterPlayerName();
+        if (playerName == null){
+            return;
+        }
+
         if (!isRoomMaster) {
             ip = JOptionPane.showInputDialog(this, "Enter room ID:", "Room ID", JOptionPane.QUESTION_MESSAGE);
             if (!Utils.validateIP(ip)) {
@@ -120,7 +125,7 @@ public class HomeScreen extends JPanel implements ActionListener{
                 return;
             }
         }
-        String playerName = enterPlayerName();
+//        String playerName = enterPlayerName();
         if (playerName != null) {
             HashMap<String, Object> args = new HashMap<>();
             args.put("playerName", playerName);
