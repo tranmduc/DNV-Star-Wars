@@ -44,7 +44,7 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
 
         setSize(width, height);
         setVisible(true);
-
+        setBackground(Color.WHITE);
         initObjectList();
 
         renderCanvas();
@@ -125,13 +125,17 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
 
         g.setColor(Color.BLUE);
 //        g.drawString(getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
-        drawPlayerScores(g, getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
+        //drawPlayerScores(g, getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
+        drawPlayerScores(g, getPlayersScore(), 0, Constants.GAME_HEIGHT + 50);
     }
 
     private void drawPlayerScores(Graphics g, String scoreStr, int x, int y) {
-        int lineHeight = 20;
-        for (String line : scoreStr.split("\n"))
-            g.drawString(line, x, y += lineHeight);
+        //int lineHeight = 20;
+        int lineWeight = 300;
+        for (String line : scoreStr.split("\n")){
+            //g.drawString(line, x, y += lineHeight);
+            g.drawString(line, x += lineWeight, y);
+        }
     }
 
     private String getPlayersScore() {

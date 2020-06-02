@@ -5,6 +5,12 @@ import com.airforce.ui.ScreenManager;
 
 import javax.swing.*;
 
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import static com.airforce.common.Constants.*;
 
 import java.awt.*;
@@ -26,6 +32,22 @@ public class HomeScreen extends JPanel implements ActionListener{
         setLayout(null);
         initUI();
         setVisible(true);
+        initSound();
+        setBackground(Color.BLACK);
+    }
+
+    private void initSound(){
+        try {
+            //File sound = new File ("src/main/resources/main_theme.wav");
+            File sound = new File ("src/main/resources/InTheEnd.wav");
+
+            AudioInputStream ais = AudioSystem.getAudioInputStream(sound);
+            Clip clip = AudioSystem.getClip();
+            clip.open(ais);
+            clip.start();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     private void initUI() {
@@ -33,14 +55,18 @@ public class HomeScreen extends JPanel implements ActionListener{
         joinGameBtn = new JButton("Join Game");
         quitGameBtn = new JButton("Quit");
 
-        titleLb = new JLabel("DNV Star Wars", SwingConstants.CENTER);
+        titleLb = new JLabel("DNV STAR WARS", SwingConstants.CENTER);
+        titleLb.setForeground(Color.CYAN);
 
         createGameBtn.setBounds(500, 320, 280, 50);
         createGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
+        createGameBtn.setForeground(Color.BLACK);
         joinGameBtn.setBounds(500, 396, 280, 50);
         joinGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
+        joinGameBtn.setForeground(Color.BLACK);
         quitGameBtn.setBounds(500, 472, 280, 50);
         quitGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
+        quitGameBtn.setForeground(Color.BLACK);
 
         titleLb.setBounds(450, 160, 390, 70);
         titleLb.setFont(new Font("Serif", Font.BOLD, 46));

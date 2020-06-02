@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import static com.airforce.common.Constants.*;
 
+import java.awt.*;
 import java.util.HashMap;
 
 public class ScreenManager {
@@ -25,6 +26,7 @@ public class ScreenManager {
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(false);
+        window.getContentPane().setBackground(Color.BLACK);
 
         navigate(HOME_SCREEN);
     }

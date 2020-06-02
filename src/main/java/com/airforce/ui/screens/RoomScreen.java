@@ -52,6 +52,7 @@ public class RoomScreen extends JPanel implements ActionListener {
         setLayout(null);
         initUI();
         setVisible(false);
+        setBackground(Color.BLACK);
         if (args != null) {
             boolean isMaster = false;
             if (args.containsKey("isRoomMaster")) {

@@ -11,7 +11,8 @@ public class ImageLoader {
     public static BufferedImage bullet;
 
     public static void init() {
-       image = loadImage("/whte.png");
+       //image = loadImage("/whte.png");
+       image = loadImage("/space-bg2.png");
        entities = loadImage("/airplane.png");
        enemy = loadImage("/airplane.png").getSubimage(0, 0,85, 90);
        player = loadImage("/plane2.png").getSubimage(5, 10, 290, 240);
