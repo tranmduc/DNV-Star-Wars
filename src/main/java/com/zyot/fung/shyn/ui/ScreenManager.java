@@ -19,7 +19,7 @@ public class ScreenManager {
     private JFrame window;
 
     private ScreenManager() {
-        window = new JFrame("FuDuSkyWar");
+        window = new JFrame("Star Wars");
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         window.setLocationRelativeTo(null);
         window.setResizable(false);

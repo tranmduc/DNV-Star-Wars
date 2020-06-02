@@ -1,2 +1,4 @@
-# Sky War
-#### Created by Dung-Fung
+# Networking Programming Project
+## Star Wars 
+#### Nguyen Quang Linh
+#### Tran Minh Duc
