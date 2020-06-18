@@ -6,6 +6,7 @@ import com.airforce.ui.ScreenManager;
 import javax.swing.*;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -18,6 +19,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 public class HomeScreen extends JPanel implements ActionListener{
 
     private ScreenManager screenManager;
@@ -25,21 +29,23 @@ public class HomeScreen extends JPanel implements ActionListener{
     private JButton createGameBtn;
     private JButton joinGameBtn;
     private JButton quitGameBtn;
+    private JButton muteBtn;
     private JLabel titleLb;
-
+    Font pixelMplus;
+    
     public HomeScreen(int width, int height) {
         setSize(width, height);
         setLayout(null);
         initUI();
         setVisible(true);
-        //initSound();
+        initSound();
         setBackground(Color.BLACK);
     }
 
     private void initSound(){
         try {
-            //File sound = new File ("src/main/resources/main_theme.wav");
-            File sound = new File ("src/main/resources/InTheEnd.wav");
+            File sound = new File ("src/main/resources/main_theme.wav");
+//            File sound = new File ("src/main/resources/InTheEnd.wav");
 
             AudioInputStream ais = AudioSystem.getAudioInputStream(sound);
             Clip clip = AudioSystem.getClip();
@@ -50,31 +56,92 @@ public class HomeScreen extends JPanel implements ActionListener{
         }
     }
 
+    class RoundedBorder implements Border {
+        int radius;
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+        public boolean isBorderOpaque() {
+            return true;
+        }
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x,y,width-1,height-1,radius,radius);
+        }
+    }	
+    
     private void initUI() {
         createGameBtn = new JButton("Host Game");
         joinGameBtn = new JButton("Join Game");
-        quitGameBtn = new JButton("Quit");
-
+        quitGameBtn = new JButton("Exit");
+      
+        createGameBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        	public void mouseEntered(java.awt.event.MouseEvent evt) {
+        		createGameBtn.setBackground(Color.cyan);
+        	}
+        	public void mouseExited (java.awt.event.MouseEvent evt) {
+        		createGameBtn.setBackground(UIManager.getColor("control"));
+        	}
+        });
+        createGameBtn.setBorder(new RoundedBorder(20));
+        createGameBtn.setFocusable(false);
+        
+        joinGameBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        	public void mouseEntered(java.awt.event.MouseEvent evt) {
+        		joinGameBtn.setBackground(Color.cyan);
+        	}
+        	public void mouseExited (java.awt.event.MouseEvent evt) {
+        		joinGameBtn.setBackground(UIManager.getColor("control"));
+        	}
+        });
+        joinGameBtn.setBorder(new RoundedBorder(20));
+        joinGameBtn.setFocusable(false);
+        
+        quitGameBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        	public void mouseEntered(java.awt.event.MouseEvent evt) {
+        		quitGameBtn.setBackground(Color.cyan);
+        	}
+        	public void mouseExited (java.awt.event.MouseEvent evt) {
+        		quitGameBtn.setBackground(UIManager.getColor("control"));
+        	}
+        });
+        quitGameBtn.setBorder(new RoundedBorder(20));
+        quitGameBtn.setFocusable(false);
+        
+        
         titleLb = new JLabel("DNV STAR WARS", SwingConstants.CENTER);
         titleLb.setForeground(Color.CYAN);
+        
 
         createGameBtn.setBounds(500, 320, 280, 50);
         createGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
-        createGameBtn.setForeground(Color.BLACK);
+//        createGameBtn.setForeground(Color.BLACK);
         joinGameBtn.setBounds(500, 396, 280, 50);
         joinGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
         joinGameBtn.setForeground(Color.BLACK);
         quitGameBtn.setBounds(500, 472, 280, 50);
         quitGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 24));
-        quitGameBtn.setForeground(Color.BLACK);
-
-        titleLb.setBounds(450, 160, 390, 70);
-        titleLb.setFont(new Font("Serif", Font.BOLD, 46));
+        quitGameBtn.setForeground(Color.BLACK);   
+        
+        titleLb.setBounds(350, 160, 600, 70);
+        
+        
+        try {
+        	pixelMplus = Font.createFont(Font.TRUETYPE_FONT, new File("PixelMplus10-Regular.ttf")).deriveFont(80f);
+        	GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        	ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("PixelMplus10-Regular.ttf")));
+        } catch (IOException | FontFormatException e) {
+        	
+        }
+//        titleLb.setFont(new Font("Vertana", Font.BOLD, 46));
+        titleLb.setFont(pixelMplus);
 
         quitGameBtn.addActionListener(this);
         createGameBtn.addActionListener(this);
         joinGameBtn.addActionListener(this);
-
+        
         add(createGameBtn);
         add(joinGameBtn);
         add(quitGameBtn);
