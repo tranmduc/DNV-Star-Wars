@@ -25,7 +25,7 @@ public class PlayerInGame implements Serializable {
     private int health;
     private int score;
 
-    private int speed = 4;
+    private int speed = 6;
 
     public PlayerInGame(int x, int y, int id, int position) {
         this(x,y,id,position,"Player Unknown");
@@ -82,7 +82,7 @@ public class PlayerInGame implements Serializable {
     public void render(Graphics g) {
         if (health > 0) {
             if (isMe()) {
-                g.drawImage(HelicopterImageLoader.getPlaneFrame(), x, y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT, null);
+                g.drawImage(PlaneImageLoader.getPlaneFrame(), x, y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT, null);
             } else {
                 g.drawImage(ImageLoader.player, x, y, Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT, null);
             }
