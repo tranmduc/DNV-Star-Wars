@@ -150,7 +150,7 @@ public class RoomScreen extends JPanel implements ActionListener {
         exitBtn.addActionListener(this);
         readyBtn.addActionListener(this);
 
-        //add(levelSelector);
+//        add(levelSelector);
         add(exitBtn);
         add(readyBtn);
         add(separator);
