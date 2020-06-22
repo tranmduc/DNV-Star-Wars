@@ -13,7 +13,8 @@ public class ImagePanel extends JPanel {
 
     public void setImage(boolean isExistPlayer) {
         if (isExistPlayer) {
-            image = ImageLoader.loadImage("/plane2.png").getSubimage(5, 10, 290, 240);
+            image = ImageLoader.loadImage("/pilot.png");
+//                    .getSubimage(5, 10, 290, 240);
         } else {
             image = ImageLoader.loadImage("/noplayerimage.png");
         }

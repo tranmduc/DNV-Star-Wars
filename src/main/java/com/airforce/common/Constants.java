@@ -2,7 +2,7 @@ package com.airforce.common;
 
 public class Constants {
     public static final int HOST_PORT = 46666;
-    public static final int MAX_ROOM_SIZE = 3;
+    public static final int MAX_ROOM_SIZE = 4;
 
     public static final int GAME_WIDTH = 1280;
     public static final int GAME_HEIGHT = 800;
