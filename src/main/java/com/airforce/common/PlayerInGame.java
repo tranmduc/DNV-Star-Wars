@@ -44,7 +44,7 @@ public class PlayerInGame implements Serializable {
     public void init() {
         current = System.nanoTime();
         delay = 100;
-        health = 1;
+        health = 3;
         score = 0;
         level = 1;
     }
@@ -116,7 +116,12 @@ public class PlayerInGame implements Serializable {
     }
     
     public int getLevel() {
-    	return GameManager.currentLevel;
+//    	return GameManager.currentLevel;
+    	return this.level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void incScore() {

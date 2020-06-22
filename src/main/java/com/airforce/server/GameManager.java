@@ -79,6 +79,9 @@ public class GameManager {
         long now = System.nanoTime();
         if ((currentLevel < 8 ) && (((now - currentLevelStartTime)/1000000000) > secondsForEachLevel)) {
             currentLevel++;
+            for (PlayerInGame playerInGame : playerInGames) {
+                playerInGame.setLevel(currentLevel);
+            }
             currentLevelStartTime = now;
             System.out.println("current level: " + currentLevel);
         }
