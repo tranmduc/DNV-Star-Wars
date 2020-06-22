@@ -4,6 +4,7 @@ import com.airforce.client.EventBuz;
 import com.airforce.client.Player;
 import com.airforce.common.*;
 import com.airforce.packet.*;
+import com.airforce.server.GameManager;
 import com.airforce.ui.*;
 import com.google.common.eventbus.Subscribe;
 
@@ -111,7 +112,17 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
                 	g.setFont(new Font("Comfortaa",Font.BOLD,18));
                     g.setColor(Color.RED);
                     g.drawString("Lives: " + p.getHealth(), 450, 770);
+                    
+                    g.setFont(new Font("Comfortaa",Font.BOLD,18));
+                    g.setColor(Color.RED);
+                    g.drawString("Level: " + p.getLevel() , 800, 770);
                 }
+                
+//                for (int k = 0; k < p.getLevel(); k++) {
+//                	g.setFont(new Font("Comfortaa",Font.BOLD,18));
+//                    g.setColor(Color.RED);
+//                    g.drawString("Level: " + p.getLevel() , 800, 770);
+//                }
             }   
         }
     	
@@ -137,6 +148,10 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
 //        g.drawString(getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
         //drawPlayerScores(g, getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
         drawPlayerScores(g, getPlayersScore(), 0, Constants.GAME_HEIGHT + 50);
+        
+//        g.setFont(new Font("Comfortaa",Font.BOLD,18));
+//        g.setColor(Color.RED);
+//        g.drawString("Level: " + GameManager.currentLevel , 800, 770);
     }
         
         

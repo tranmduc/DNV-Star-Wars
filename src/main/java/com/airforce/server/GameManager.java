@@ -25,7 +25,7 @@ public class GameManager {
     private long timeLastEnemyCreated;
     private long delay; // in Millisecond
 
-    private int currentLevel;
+    public static int currentLevel;
     private long currentLevelStartTime;
     private long secondsForEachLevel;
 

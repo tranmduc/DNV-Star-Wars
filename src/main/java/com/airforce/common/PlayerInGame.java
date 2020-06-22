@@ -24,6 +24,7 @@ public class PlayerInGame implements Serializable {
     private long delay;
     private int health;
     private int score;
+    private int level;
 
     private int speed = 6;
 
@@ -45,6 +46,7 @@ public class PlayerInGame implements Serializable {
         delay = 100;
         health = 1;
         score = 0;
+        level = 1;
     }
 
     public void tick() {
@@ -111,6 +113,10 @@ public class PlayerInGame implements Serializable {
 
     public int getScore() {
         return this.score;
+    }
+    
+    public int getLevel() {
+    	return GameManager.currentLevel;
     }
 
     public void incScore() {
