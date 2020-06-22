@@ -30,7 +30,7 @@ public class RoomScreen extends JPanel implements ActionListener {
     private JSeparator separator;
     private JLabel roomIDLb;
     private ArrayList<PlayerHolder> playerHolders;
-    private int[] playerHolderLocations = {95, 490, 885};
+    private int[] playerHolderLocations = {95, 885, 95, 885};
     private JComboBox levelSelector;
 
     private Vector<String> levels;
@@ -78,7 +78,7 @@ public class RoomScreen extends JPanel implements ActionListener {
 
     private void renderUIofMaster() {
         startGameBtn = new JButton("Start Game");
-        startGameBtn.setBounds(1000, 600, 220, 50);
+        startGameBtn.setBounds(530, 275, 220, 50);
         startGameBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
         startGameBtn.setForeground(Color.BLACK);
         startGameBtn.addActionListener(this);
@@ -121,7 +121,11 @@ public class RoomScreen extends JPanel implements ActionListener {
         separator = new JSeparator();
         playerHolders = new ArrayList<>();
         for (int i = 0; i < playerHolderLocations.length; i++) {
-            playerHolders.add(new PlayerHolder(playerHolderLocations[i], 210));
+            int y = 150;
+            if (i>=2){
+                y = 500;
+            }
+            playerHolders.add(new PlayerHolder(playerHolderLocations[i], y));
             add(playerHolders.get(i));
         }
 
@@ -137,11 +141,11 @@ public class RoomScreen extends JPanel implements ActionListener {
         });
         levelSelector.setEnabled(false);
 
-        exitBtn.setBounds(60, 600, 220, 50);
+        exitBtn.setBounds(530, 625, 220, 50);
         exitBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 14));
         exitBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
         exitBtn.setForeground(Color.BLACK);
-        readyBtn.setBounds(1000, 600, 220, 50);
+        readyBtn.setBounds(530, 275, 220, 50);
         readyBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
         readyBtn.setFont(new Font(NORMAL_FONT, Font.PLAIN, 26));
         readyBtn.setForeground(Color.BLACK);
