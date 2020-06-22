@@ -105,7 +105,17 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
     }
 
     private void renderObjects(Graphics g) {
-        for (Enemy e : enemies) {
+    	for (PlayerInGame p : playerInGames) {
+            if (p.id == AppPreferences.UID) {
+                for (int j = 0; j < p.getHealth(); j++) {
+                	g.setFont(new Font("Comfortaa",Font.BOLD,18));
+                    g.setColor(Color.RED);
+                    g.drawString("Lives: " + p.getHealth(), 450, 770);
+                }
+            }   
+        }
+    	
+    	for (Enemy e : enemies) {
             if (e.getX() >= Constants.INGAME_PADDING_START && e.getX() <= (Constants.INGAME_PADDING_START + Constants.GAME_WIDTH - Constants.ENEMY_WIDTH) && e.getY() <= (Constants.INGAME_PADDING_TOP + Constants.GAME_HEIGHT - Constants.ENEMY_WIDTH) && e.getY() >= Constants.INGAME_PADDING_TOP) {
                 e.render(g);
             }
@@ -128,6 +138,8 @@ public class IngameScreen extends JPanel implements ActionListener, KeyListener 
         //drawPlayerScores(g, getPlayersScore(), Constants.GAME_WIDTH - 200, Constants.INGAME_PADDING_TOP + 10);
         drawPlayerScores(g, getPlayersScore(), 0, Constants.GAME_HEIGHT + 50);
     }
+        
+        
 
     private void drawPlayerScores(Graphics g, String scoreStr, int x, int y) {
         //int lineHeight = 20;
