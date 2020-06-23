@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.zyot.fung.shyn</groupId>
+  <groupId>com.airforce</groupId>
   <artifactId>DNVStarWars</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>FuDuSkyWar</name>
+  <name>DNVStarWars</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -76,7 +76,7 @@
                 <addClasspath>true</addClasspath>
                 <!-- Specifies that all dependencies of our application are found -->
                 <!-- Configures the main class of the application -->
-                <mainClass>com.zyot.fung.shyn.Test</mainClass>
+                <mainClass>com.airforce.Test</mainClass>
               </manifest>
             </archive>
           </configuration>
@@ -129,7 +129,7 @@
                   <archive>
                     <manifest>
                       <mainClass>
-                        com.zyot.fung.shyn.Test
+                        com.airforce.Test
                       </mainClass>
                     </manifest>
                   </archive>
