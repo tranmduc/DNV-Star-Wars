@@ -129,9 +129,9 @@ public class HomeScreen extends JPanel implements ActionListener{
         
         
         try {
-        	pixelMplus = Font.createFont(Font.TRUETYPE_FONT, new File("PixelMplus10-Regular.ttf")).deriveFont(80f);
+        	pixelMplus = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/PixelMplus10-Regular.ttf")).deriveFont(80f);
         	GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        	ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("PixelMplus10-Regular.ttf")));
+        	ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/PixelMplus10-Regular.ttf")));
         } catch (IOException | FontFormatException e) {
         	
         }

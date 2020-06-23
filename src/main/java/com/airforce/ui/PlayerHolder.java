@@ -23,7 +23,7 @@ public class PlayerHolder extends JPanel {
     private void initUI() {
         playerNameLb = new JLabel("No PlayerInGame", SwingConstants.CENTER);
         playerNameLb.setBounds(70, 260, 160, 30);
-        playerNameLb.setFont(new Font(NORMAL_FONT, Font.PLAIN, 14));
+        playerNameLb.setFont(new Font(NORMAL_FONT, Font.PLAIN, 18));
 
         avartar = new ImagePanel();
         avartar.setBounds(70, 30, 160, 170);
