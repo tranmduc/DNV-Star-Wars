@@ -77,10 +77,11 @@ public class GameManager {
 
 //        long breaks = (System.nanoTime() - current)/1000000;
         long now = System.nanoTime();
-        if ((currentLevel < 8 ) && (((now - currentLevelStartTime)/1000000000) > secondsForEachLevel)) {
+        if ((currentLevel < 10 ) && (((now - currentLevelStartTime)/1000000000) > secondsForEachLevel*currentLevel)) {
             currentLevel++;
             for (PlayerInGame playerInGame : playerInGames) {
                 playerInGame.setLevel(currentLevel);
+                playerInGame.setHealth(playerInGame.getHealth()+1);
             }
             currentLevelStartTime = now;
             System.out.println("current level: " + currentLevel);
