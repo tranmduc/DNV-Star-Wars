@@ -31,7 +31,7 @@ public class PlayerHolder extends JPanel {
         readyIcon = new JPanel();
         readyIcon.setBounds(265, 0, 30, 30);
         readyIcon.setBorder(new LineBorder(Color.BLACK, 3));
-        readyIcon.setBackground(Color.CYAN);
+        readyIcon.setBackground(Color.GREEN);
         readyIcon.setOpaque(false);
 
         add(playerNameLb);
